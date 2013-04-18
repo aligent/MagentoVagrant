@@ -46,6 +46,11 @@ Vagrant::Config.run do |config|
   # }
   # config.bindfs.bind_folder "/vagrant-nfs/magento", "/var/www/magento", :perms => "ugo=rwX", :"force-user" => "www-data", :"force-group" => "www-data"
 
+  # Increase RAM to 1024Mb
+  config.vm.provider "virtualbox" do |v|
+    v.customize ["modifyvm", :id, "--memory", 1024]
+  end
+
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
   # You will need to create the manifests directory and a manifest in
