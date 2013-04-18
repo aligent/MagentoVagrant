@@ -28,16 +28,20 @@ SITE
     php-fpm (0.3.3)
       apt (>= 0.0.0)
       yum (>= 0.0.0)
+    redis2 (0.4.6)
+      runit (>= 0.0.0)
+    runit (1.1.2)
+      build-essential (>= 0.0.0)
+      yum (>= 0.0.0)
     ubuntu (1.1.2)
       apt (>= 0.0.0)
     xml (1.1.2)
       build-essential (>= 0.0.0)
     yum (2.2.0)
-    yumrepo (0.16.6)
-      yum (>= 1.0.0)
 
 DEPENDENCIES
   apt (>= 0)
   magento (>= 0)
+  redis2 (>= 0)
   ubuntu (>= 0)
 

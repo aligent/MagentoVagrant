@@ -35,7 +35,10 @@ Vagrant::Config.run do |config|
   # an identifier, the second is the path on the guest to mount the
   # folder, and the third is the path on the host to the actual folder.
   # config.vm.share_folder "v-data", "/vagrant_data", "../data"
-  config.vm.share_folder "magento", "/var/www/magento", "magento", :extra => "dmode=775,fmode=664", :owner => "vagrant", :group => "www-data"
+
+  # Commenting out while web role commented out
+  #config.vm.share_folder "magento", "/var/www/magento", "magento", :extra => "dmode=775,fmode=664", :owner => "vagrant", :group => "www-data"
+
   # config.vm.share_folder "magento", "/var/www/magento", "magento" , :nfs => true
   # config.nfs.map_uid = 33
   # config.nfs.map_gid = 33
@@ -47,9 +50,9 @@ Vagrant::Config.run do |config|
   # config.bindfs.bind_folder "/vagrant-nfs/magento", "/var/www/magento", :perms => "ugo=rwX", :"force-user" => "www-data", :"force-group" => "www-data"
 
   # Increase RAM to 1024Mb
-  config.vm.provider "virtualbox" do |v|
-    v.customize ["modifyvm", :id, "--memory", 1024]
-  end
+  #config.vm.provider "virtualbox" do |v|
+  #  v.customize ["modifyvm", :id, "--memory", 1024]
+  #end
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
@@ -80,24 +83,25 @@ Vagrant::Config.run do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "cookbooks", "cookbooks-local"
     chef.roles_path = "roles"
-  #   chef.add_recipe "mysql"
-  #   chef.add_role "web"
-  #
-  #   # You may also specify custom JSON attributes:
-  #   chef.json = { :mysql_password => "foo" }
-    chef.add_recipe "ubuntu"
-    chef.add_recipe "apt"
+    # chef.add_recipe "mysql"
+    # chef.add_role "web"
+    chef.add_role "redis"
+
+    # You may also specify custom JSON attributes:
+    # chef.json = { :mysql_password => "foo" }
+    # chef.add_recipe "ubuntu"
+    # chef.add_recipe "apt"
     # chef.add_recipe "nginx"
     # chef.add_recipe "php-fpm"
-    chef.add_recipe "magento"
-    chef.add_role("web")
-    chef.json = {
-        :ubuntu => {
-                :archive_url => "http://mirror.internode.on.net/pub/ubuntu/ubuntu/",
-                :security_url => "http://mirror.internode.on.net/pub/ubuntu/ubuntu/",
-                :include_source_packages => false
-            }
-    }
+    # chef.add_recipe "magento"
+    # chef.add_role("web")
+    # chef.json = {
+    #     :ubuntu => {
+    #             :archive_url => "http://mirror.internode.on.net/pub/ubuntu/ubuntu/",
+    #             :security_url => "http://mirror.internode.on.net/pub/ubuntu/ubuntu/",
+    #             :include_source_packages => false
+    #         }
+    # }
   end
 
   # Enable provisioning with chef server, specifying the chef server URL,
