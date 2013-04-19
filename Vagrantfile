@@ -11,7 +11,7 @@ Vagrant::Config.run do |config|
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210.box"
+  #config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210.box"
 
   # Boot with a GUI so you can see the screen. (Default is headless)
   # config.vm.boot_mode = :gui
@@ -39,7 +39,9 @@ Vagrant::Config.run do |config|
   # Commenting out while web role commented out
   #config.vm.share_folder "magento", "/var/www/magento", "magento", :extra => "dmode=775,fmode=664", :owner => "vagrant", :group => "www-data"
 
-  # config.vm.share_folder "magento", "/var/www/magento", "magento" , :nfs => true
+  ## NOTE: The current centos6.4 doesnt have nfs installed. Need to manually install inside the vm with: sudo yum install nfs-utils nfs-utils-lib
+  config.vm.share_folder "magento", "/var/www/magento", "magento" , :nfs => true
+  
   # config.nfs.map_uid = 33
   # config.nfs.map_gid = 33
   # config.vm.share_folder "magento", "/vagrant-nfs/magento", "magento" , :nfs => true
@@ -81,11 +83,13 @@ Vagrant::Config.run do |config|
   # to this Vagrantfile), and adding some recipes and/or roles.
   
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = "cookbooks", "cookbooks-local"
+    chef.cookbooks_path = "cookbooks", "cookbooks-aligent", "cookbooks-local"
     chef.roles_path = "roles"
     # chef.add_recipe "mysql"
     # chef.add_role "web"
-    chef.add_role "redis"
+    chef.add_role "magento"
+    # chef.add_role "mysql"
+    # chef.add_role "redis"
 
     # You may also specify custom JSON attributes:
     # chef.json = { :mysql_password => "foo" }

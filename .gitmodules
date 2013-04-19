@@ -1,0 +1,3 @@
+[submodule "cookbooks-aligent/magento"]
+	path = cookbooks-aligent/magento
+	url = git@github.com:aligent/cookbook-magento.git

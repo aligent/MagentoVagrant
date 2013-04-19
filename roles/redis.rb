@@ -1,4 +1,5 @@
 name "redis"
+description 'Redis server'
 run_list(
     'recipe[yum::epel]',
     'recipe[redis2]'

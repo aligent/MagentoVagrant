@@ -18,5 +18,12 @@ cookbook 'ubuntu'
 cookbook 'apt'
 # cookbook 'nginx'
 # cookbook 'php-fpm'
-cookbook 'magento'
 cookbook 'redis2'
+
+
+## Required by magento cookbook
+cookbook 'apache2'
+cookbook 'mysql'
+cookbook 'php'
+cookbook 'php-fpm'
+cookbook 'nginx'
