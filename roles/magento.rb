@@ -9,5 +9,13 @@ run_list(
 default_attributes(
     :magento => {
         :gen_cfg => false
+    },
+    :nginx => {
+        :gzip_types => ['text/plain', 'text/html', 'text/css', 'application/x-javascript',
+                        'text/xml', 'application/xml', 'application/xml+rss', 'text/javascript'],
+        :keepalive_timeout => 10,
+        :gzip => 'on',
+        :gzip_http_version => '1.1',
+        :gzip_vary => 'off'
     }
 )
