@@ -20,7 +20,6 @@ cookbook 'apt'
 # cookbook 'php-fpm'
 cookbook 'redis2'
 
-
 ## Required by magento cookbook
 cookbook 'apache2'
 cookbook 'mysql'

@@ -89,6 +89,7 @@ Vagrant::Config.run do |config|
     # chef.add_recipe "mysql"
     # chef.add_role "web"
     chef.add_role "magento"
+    chef.add_role "varnish"
     # chef.add_role "mysql"
     # chef.add_role "redis"
 
