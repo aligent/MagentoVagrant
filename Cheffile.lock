@@ -26,6 +26,7 @@ SITE
     runit (1.1.2)
       build-essential (>= 0.0.0)
       yum (>= 0.0.0)
+    simple_iptables (0.3.0)
     ubuntu (1.1.2)
       apt (>= 0.0.0)
     xml (1.1.2)
@@ -40,5 +41,6 @@ DEPENDENCIES
   php (>= 0)
   php-fpm (>= 0)
   redis2 (>= 0)
+  simple_iptables (>= 0)
   ubuntu (>= 0)
 

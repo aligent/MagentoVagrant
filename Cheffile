@@ -27,3 +27,5 @@ cookbook 'mysql'
 cookbook 'php'
 cookbook 'php-fpm'
 cookbook 'nginx'
+
+cookbook 'simple_iptables'
