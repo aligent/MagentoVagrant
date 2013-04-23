@@ -1,6 +1,6 @@
 [submodule "cookbooks-aligent/magento"]
 	path = cookbooks-aligent/magento
 	url = git@github.com:aligent/cookbook-magento.git
-[submodule "cookbooks-aligent/varnish"]
-	path = cookbooks-aligent/varnish
-	url = git@github.com:aligent/varnish.git
+[submodule "cookbooks-aligent/chef-varnish"]
+	path = cookbooks-aligent/chef-varnish
+	url = https://github.com/inviqa/chef-varnish.git

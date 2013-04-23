@@ -6,8 +6,10 @@
 
 # default backend definition.  Set this to point to your content server.
 backend default {
-  .host = "127.0.0.1";
-  .port = "81";
+#  .host = "127.0.0.1";
+#  .port = "81";
+  .host = "<%= @params[:VARNISH_BACKEND_ADDRESS] %>";
+  .port = "<%= @params[:VARNISH_BACKEND_PORT] %>";
   .connect_timeout = 15s;
   .first_byte_timeout = 3600s;
   .between_bytes_timeout = 3600s;
