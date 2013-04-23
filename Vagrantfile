@@ -86,12 +86,10 @@ Vagrant::Config.run do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "cookbooks", "cookbooks-aligent", "cookbooks-local"
     chef.roles_path = "roles"
-    # chef.add_recipe "mysql"
-    # chef.add_role "web"
     chef.add_role "magento"
     chef.add_role "varnish"
-    # chef.add_role "mysql"
-    # chef.add_role "redis"
+    chef.add_role "mysql"
+    chef.add_role "redis"
 
     # You may also specify custom JSON attributes:
     # chef.json = { :mysql_password => "foo" }
