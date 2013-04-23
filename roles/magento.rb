@@ -5,10 +5,15 @@ run_list(
     'recipe[magento::nginx]',   # Installs nginx (obviously)
     'recipe[nginx::aligent]',
     'recipe[chef-php-extra::predis]',
+    'recipe[chef-php-extra::module_soap]',
+    'recipe[chef-php-extra::module_xml]',
     'recipe[simple_iptables]'
 )
 
 default_attributes(
+    :yum => {
+        :ius_release => '1.0-11'
+    },
     :magento => {
         :gen_cfg => false
     },
