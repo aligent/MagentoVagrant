@@ -4,6 +4,7 @@ run_list(
     'recipe[magento]',          # Installs php etc...
     'recipe[magento::nginx]',   # Installs nginx (obviously)
     'recipe[nginx::aligent]',
+    'recipe[chef-php-extra::predis]',
     'recipe[simple_iptables]'
 )
 

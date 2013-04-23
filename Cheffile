@@ -28,3 +28,6 @@ cookbook 'php-fpm'
 cookbook 'nginx'
 
 cookbook 'simple_iptables'
+
+## Required by chef-php-extra
+cookbook 'git'
