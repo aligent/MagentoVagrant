@@ -6,7 +6,7 @@ run_list(
 
 default_attributes(
     :varnish => {
-        :VARNISH_LISTEN_PORT => 6081,
-        :VARNISH_BACKEND_PORT => 80
+        :VARNISH_LISTEN_PORT => 80,
+        :VARNISH_BACKEND_PORT => 81
     }
 )
