@@ -3,7 +3,7 @@
 	url = git@github.com:aligent/cookbook-magento.git
 [submodule "cookbooks-aligent/chef-varnish"]
 	path = cookbooks-aligent/chef-varnish
-	url = https://github.com/inviqa/chef-varnish.git
+	url = git@github.com:aligent/chef-varnish.git
 [submodule "cookbooks-aligent/chef-php-extra"]
 	path = cookbooks-aligent/chef-php-extra
-	url = https://github.com/inviqa/chef-php-extra.git
+	url = git@github.com:aligent/chef-php-extra.git
