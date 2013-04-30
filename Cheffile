@@ -24,7 +24,7 @@ cookbook 'redis2'
 cookbook 'apache2'
 cookbook 'mysql'
 cookbook 'php'
-cookbook 'php-fpm'
+#cookbook 'php-fpm'
 cookbook 'nginx'
 
 cookbook 'simple_iptables'

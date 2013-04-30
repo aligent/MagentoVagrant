@@ -1,4 +1,4 @@
-include_recipe "php-fpm"
+include_recipe "spawn-fcgi"
 include_recipe "magento"
 include_recipe "nginx"
 
