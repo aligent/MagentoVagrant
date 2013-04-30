@@ -12,7 +12,10 @@ run_list(
 
 default_attributes(
     :yum => {
-        :ius_release => '1.0-11'
+        :ius_release => '1.0-11',
+        :remi => {
+            :includepkgs => 'php-fpm'
+        }
     },
     :magento => {
         :gen_cfg => false
@@ -24,5 +27,8 @@ default_attributes(
         :gzip => 'on',
         :gzip_http_version => '1.1',
         :gzip_vary => 'off'
+    },
+    :php => {
+        :ius => ''
     }
 )
