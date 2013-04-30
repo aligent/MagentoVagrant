@@ -18,7 +18,10 @@ default_attributes(
         }
     },
     :magento => {
-        :gen_cfg => false
+        :gen_cfg => false,
+        :nginx => {
+            :fastcgi_process => 'unix:/var/run/php-fcgi.sock'
+        }
     },
     :nginx => {
         :gzip_types => ['text/plain', 'text/html', 'text/css', 'application/x-javascript',

@@ -1,0 +1,1 @@
+default[:'spawn-fcgi']['attribute'] = ''
