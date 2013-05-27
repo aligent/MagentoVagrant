@@ -7,6 +7,7 @@ run_list(
     'recipe[chef-php-extra::predis]',
     'recipe[chef-php-extra::module_soap]',
     'recipe[chef-php-extra::module_xml]',
+    'recipe[timezone-ii]',
     'recipe[simple_iptables]',
     'recipe[timezone-ii]'
 )
