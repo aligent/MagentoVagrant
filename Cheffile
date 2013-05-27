@@ -31,3 +31,5 @@ cookbook 'simple_iptables'
 
 ## Required by chef-php-extra
 cookbook 'git'
+
+cookbook 'timezone-ii'

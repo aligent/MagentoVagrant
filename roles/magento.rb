@@ -7,7 +7,8 @@ run_list(
     'recipe[chef-php-extra::predis]',
     'recipe[chef-php-extra::module_soap]',
     'recipe[chef-php-extra::module_xml]',
-    'recipe[simple_iptables]'
+    'recipe[simple_iptables]',
+    'recipe[timezone-ii]'
 )
 
 default_attributes(
@@ -33,5 +34,6 @@ default_attributes(
     },
     :php => {
         :ius => ''
-    }
+    },
+    :tz => 'Australia/Adelaide'
 )

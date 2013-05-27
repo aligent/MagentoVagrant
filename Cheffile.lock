@@ -32,6 +32,7 @@ SITE
       build-essential (>= 0.0.0)
       yum (>= 0.0.0)
     simple_iptables (0.3.0)
+    timezone-ii (0.2.0)
     ubuntu (1.1.2)
       apt (>= 0.0.0)
     windows (1.8.10)
@@ -49,5 +50,6 @@ DEPENDENCIES
   php (>= 0)
   redis2 (>= 0)
   simple_iptables (>= 0)
+  timezone-ii (>= 0)
   ubuntu (>= 0)
 
