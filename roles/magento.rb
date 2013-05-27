@@ -9,7 +9,8 @@ run_list(
     'recipe[chef-php-extra::module_xml]',
     'recipe[timezone-ii]',
     'recipe[simple_iptables]',
-    'recipe[magento::iptables]'
+    'recipe[magento::iptables]',
+    'recipe[magento::postfix]'
 )
 
 default_attributes(
