@@ -40,6 +40,8 @@ http {
 #  tcp_nopush on;
 #  tcp_nodelay on;
 
+  port_in_redirect off;
+
   # JOH: http://www.magentocommerce.com/wiki/1_-_installation_and_configuration/configuring_nginx_for_magento
   autoindex off;
   map $scheme $fastcgi_https { ## Detect when HTTPS is used
