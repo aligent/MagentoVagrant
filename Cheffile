@@ -33,3 +33,4 @@ cookbook 'simple_iptables'
 cookbook 'git'
 
 cookbook 'timezone-ii'
+cookbook 'composer'

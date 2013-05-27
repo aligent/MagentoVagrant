@@ -5,6 +5,8 @@ SITE
     apt (1.9.2)
     build-essential (1.4.0)
     chef_handler (1.1.4)
+    composer (0.0.4)
+      php (>= 0.0.0)
     dmg (1.1.0)
     git (2.5.0)
       build-essential (>= 0.0.0)
@@ -44,6 +46,7 @@ SITE
 DEPENDENCIES
   apache2 (>= 0)
   apt (>= 0)
+  composer (>= 0)
   git (>= 0)
   mysql (>= 0)
   nginx (>= 0)

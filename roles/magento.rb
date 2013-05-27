@@ -13,6 +13,7 @@ run_list(
     'recipe[magento::postfix]',
     'recipe[magento::n98magerun]',
     'recipe[magento::modman]',
+    'recipe[composer]',
 )
 
 default_attributes(
@@ -39,5 +40,8 @@ default_attributes(
     :php => {
         :ius => ''
     },
-    :tz => 'Australia/Adelaide'
+    :tz => 'Australia/Adelaide',
+    :composer => {
+        :install_dir => '/usr/local/bin'
+    }
 )
