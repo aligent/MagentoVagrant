@@ -13,6 +13,7 @@ run_list(
     'recipe[magento::postfix]',
     'recipe[magento::n98magerun]',
     'recipe[magento::modman]',
+    'recipe[magento::cron]',
     'recipe[composer]',
 )
 
