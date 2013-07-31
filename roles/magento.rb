@@ -15,6 +15,7 @@ run_list(
     'recipe[magento::modman]',
     'recipe[magento::cron]',
     'recipe[composer]',
+    'recipe[ioncube]',
 )
 
 default_attributes(
@@ -36,10 +37,14 @@ default_attributes(
         :keepalive_timeout => 10,
         :gzip => 'on',
         :gzip_http_version => '1.1',
-        :gzip_vary => 'off'
+        :gzip_vary => 'off',
+	:worker_processes => 1
     },
     :php => {
         :ius => ''
+    },
+    :'spawn-fcgi' => {
+         :num_workers => 4,
     },
     :tz => 'Australia/Adelaide',
     :composer => {
