@@ -1,1 +1,1 @@
-default[:'spawn-fcgi']['attribute'] = ''
+default[:'spawn-fcgi']['num_workers'] = 12

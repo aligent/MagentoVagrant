@@ -5,5 +5,5 @@
 #
 # Example :
 SOCKET=/var/run/php-fcgi.sock
-OPTIONS="-u nginx -g nginx -s $SOCKET -S -M 0600 -C 12 -F 1 -P /var/run/spawn-fcgi.pid -- /usr/bin/php-cgi"
+OPTIONS="-u nginx -g nginx -s $SOCKET -S -M 0600 -C <%= node['spawn-fcgi']['num_workers'] %> -F 1 -P /var/run/spawn-fcgi.pid -- /usr/bin/php-cgi"
 PHP_FCGI_MAX_REQUESTS=500
