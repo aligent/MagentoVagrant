@@ -7,3 +7,6 @@
 [submodule "cookbooks-aligent/chef-php-extra"]
 	path = cookbooks-aligent/chef-php-extra
 	url = git@github.com:aligent/chef-php-extra.git
+[submodule "cookbooks-aligent/ioncube"]
+	path = cookbooks-aligent/ioncube
+	url = git@github.com:aligent/php-ioncube.git
