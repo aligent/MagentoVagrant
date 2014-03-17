@@ -15,7 +15,7 @@ run_list(
     'recipe[magento::modman]',
     'recipe[magento::cron]',
     'recipe[composer]',
-    'recipe[ioncube]',
+    'recipe[ioncube]'
 )
 
 default_attributes(
