@@ -36,12 +36,13 @@ Vagrant::Config.run do |config|
   # an identifier, the second is the path on the guest to mount the
   # folder, and the third is the path on the host to the actual folder.
   # config.vm.share_folder "v-data", "/vagrant_data", "../data"
+  config.vm.share_folder "magento", "/var/www/magento", "."
 
   # Commenting out while web role commented out
   #config.vm.share_folder "magento", "/var/www/magento", "magento", :extra => "dmode=775,fmode=664", :owner => "vagrant", :group => "www-data"
 
   ## NOTE: The current centos6.4 doesnt have nfs installed. Need to manually install inside the vm with: sudo yum install nfs-utils nfs-utils-lib
-  config.vm.share_folder "magento", "/var/www/magento", "magento" , :nfs => true
+  #config.vm.share_folder "magento", "/var/www/magento", "magento" , :nfs => true
   
   # config.nfs.map_uid = 33
   # config.nfs.map_gid = 33
@@ -84,8 +85,8 @@ Vagrant::Config.run do |config|
   # to this Vagrantfile), and adding some recipes and/or roles.
   
   config.vm.provision :chef_solo do |chef|
-    chef.cookbooks_path = "cookbooks", "cookbooks-aligent", "cookbooks-local"
-    chef.roles_path = "roles"
+    chef.cookbooks_path = "vagrant/cookbooks", "vagrant/cookbooks-aligent", "vagrant/cookbooks-local"
+    chef.roles_path = "vagrant/roles"
     chef.add_role "magento"
     chef.add_role "varnish"
     chef.add_role "mysql"
