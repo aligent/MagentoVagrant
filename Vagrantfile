@@ -36,10 +36,10 @@ Vagrant::Config.run do |config|
   # an identifier, the second is the path on the guest to mount the
   # folder, and the third is the path on the host to the actual folder.
   # config.vm.share_folder "v-data", "/vagrant_data", "../data"
-  config.vm.share_folder "magento", "/var/www/magento", "."
+  #config.vm.share_folder "magento", "/var/www/magento", "."
 
   # Commenting out while web role commented out
-  #config.vm.share_folder "magento", "/var/www/magento", "magento", :extra => "dmode=775,fmode=664", :owner => "vagrant", :group => "www-data"
+  config.vm.share_folder "magento", "/var/www/magento", ".", :mount_options => ["dmode=775","fmode=664"], :owner => "vagrant", :group => "nginx"
 
   ## NOTE: The current centos6.4 doesnt have nfs installed. Need to manually install inside the vm with: sudo yum install nfs-utils nfs-utils-lib
   #config.vm.share_folder "magento", "/var/www/magento", "magento" , :nfs => true
@@ -107,6 +107,17 @@ Vagrant::Config.run do |config|
     #             :include_source_packages => false
     #         }
     # }
+
+    ## Set websites and runcodes in the custom JSON attributes:
+#     chef.json = {
+#         :magento => {
+#             :run_codes => {
+#                 'circa-vagrant.local' => 'circa',
+#                 'sapphire-vagrant.local' => 'base'
+#             },
+#             :run_type => 'website'
+#         }
+#     }
   end
 
   # Enable provisioning with chef server, specifying the chef server URL,
