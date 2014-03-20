@@ -115,9 +115,13 @@ Vagrant::Config.run do |config|
 #                 'circa-vagrant.local' => 'circa',
 #                 'sapphire-vagrant.local' => 'base'
 #             },
-#             :run_type => 'website'
+#             :run_type => 'website',
+#             :server_params => {
+#                 :MAGE_IS_DEVELOPER_MODE => 'true'
+#             }
 #         }
 #     }
+
   end
 
   # Enable provisioning with chef server, specifying the chef server URL,
