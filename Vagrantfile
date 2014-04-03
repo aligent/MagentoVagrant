@@ -112,8 +112,8 @@ Vagrant::Config.run do |config|
 #     chef.json = {
 #         :magento => {
 #             :run_codes => {
-#                 'circa-vagrant.local' => 'circa',
-#                 'sapphire-vagrant.local' => 'base'
+#                 'website-a.vagrant.local' => 'website-a',
+#                 'website-b.vagrant.local' => 'website-b'
 #             },
 #             :run_type => 'website',
 #             :server_params => {
