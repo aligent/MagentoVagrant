@@ -43,7 +43,7 @@ Vagrant::Config.run do |config|
 
   ## NOTE: The current centos6.4 doesnt have nfs installed. Need to manually install inside the vm with: sudo yum install nfs-utils nfs-utils-lib
   #config.vm.share_folder "magento", "/var/www/magento", "magento" , :nfs => true
-  
+
   # config.nfs.map_uid = 33
   # config.nfs.map_gid = 33
   # config.vm.share_folder "magento", "/vagrant-nfs/magento", "magento" , :nfs => true
@@ -83,7 +83,7 @@ Vagrant::Config.run do |config|
 
   # Enable provisioning with chef solo, specifying a cookbooks path (relative
   # to this Vagrantfile), and adding some recipes and/or roles.
-  
+
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "vagrant/cookbooks", "vagrant/cookbooks-aligent", "vagrant/cookbooks-local"
     chef.roles_path = "vagrant/roles"
