@@ -39,7 +39,7 @@ Vagrant::Config.run do |config|
   #config.vm.share_folder "magento", "/var/www/magento", "."
 
   # Commenting out while web role commented out
-  config.vm.share_folder "magento", "/var/www/magento", ".", :mount_options => ["dmode=775","fmode=664"], :owner => "vagrant", :group => "nginx"
+  config.vm.share_folder "magento", "/var/www/magento", ".", :mount_options => ["dmode=775","fmode=664"], :owner => "vagrant", :group => "vagrant"
 
   ## NOTE: The current centos6.4 doesnt have nfs installed. Need to manually install inside the vm with: sudo yum install nfs-utils nfs-utils-lib
   #config.vm.share_folder "magento", "/var/www/magento", "magento" , :nfs => true
@@ -141,7 +141,13 @@ Vagrant::Config.run do |config|
   # chef-validator, unless you changed the configuration.
   #
   #   chef.validation_client_name = "ORGNAME-validator"
-  
+
+  # Re-mount /var/www/magento with correct permissions.
+  config.vm.provision :shell do |shell|
+    shell.inline = "umount /var/www/magento"
+    shell.inline = "mount -t vboxsf -o uid=`id -u vagrant`,gid=`id -g nginx` /var/www/magento /var/www/magento"
+  end
+
 end
 
 Vagrant.configure("2") do |config|
