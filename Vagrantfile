@@ -1,6 +1,10 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# Requires the vagran-triggers plugin.
+# run: vagrant plugin install vagrant-triggers
+# see https://github.com/emyl/vagrant-triggers
+
 Vagrant::Config.run do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
@@ -142,17 +146,18 @@ Vagrant::Config.run do |config|
   #
   #   chef.validation_client_name = "ORGNAME-validator"
 
-  # Re-mount /var/www/magento with correct permissions.
-  config.vm.provision :shell do |shell|
-    shell.inline = "umount /var/www/magento"
-    shell.inline = "mount -t vboxsf -o uid=`id -u vagrant`,gid=`id -g nginx` /var/www/magento /var/www/magento"
-  end
-
 end
 
 Vagrant.configure("2") do |config|
   # Increase RAM to 1024Mb
   config.vm.provider "virtualbox" do |v|
     v.customize ["modifyvm", :id, "--memory", 1024]
+  end
+
+  # Re-mount /var/www/magento with correct permissions.
+  # Requires the vagrant-trigger extension.
+  config.trigger.after [:up, :resume, :reload, :provision] do
+    run "vagrant ssh -c 'sudo umount /var/www/magento'"
+    run "vagrant ssh -c 'sudo mount -t vboxsf -o uid=`id -u vagrant`,gid=`id -g nginx` /var/www/magento /var/www/magento'"
   end
 end
