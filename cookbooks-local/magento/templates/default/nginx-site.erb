@@ -45,6 +45,10 @@ server {
 
   # handle magento
   location / {
+    # Remove cache buster from static file urls
+    location ~* (.+)\.(\d+)\.(js|css|png|jpg|jpeg|gif)$ {
+      try_files $uri $1.$3;
+    }
     # set expire headers
     if ($request_uri ~* "\.(ico|css|js|gif|jpe?g|png)$") {
       expires max;
