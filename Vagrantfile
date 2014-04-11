@@ -158,6 +158,6 @@ Vagrant.configure("2") do |config|
   # Requires the vagrant-trigger extension.
   config.trigger.after [:up, :resume, :reload, :provision] do
     run "vagrant ssh -c 'sudo umount /var/www/magento'"
-    run "vagrant ssh -c 'sudo mount -t vboxsf -o uid=`id -u vagrant`,gid=`id -g nginx` /var/www/magento /var/www/magento'"
+    run "vagrant ssh -c 'sudo mount -t vboxsf -o uid=`id -u nginx`,gid=`id -g vagrant` /var/www/magento /var/www/magento'"
   end
 end
