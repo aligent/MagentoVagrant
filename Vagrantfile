@@ -43,7 +43,7 @@ Vagrant::Config.run do |config|
   #config.vm.share_folder "magento", "/var/www/magento", "."
 
   # Commenting out while web role commented out
-  config.vm.share_folder "magento", "/var/www/magento", ".", :mount_options => ["dmode=775","fmode=664"], :owner => "vagrant", :group => "vagrant"
+  config.vm.share_folder "magento", "/var/www/magento", ".", :mount_options => ["dmode=775","fmode=664"], :owner => "vagrantxx", :group => "vagrantxx"
 
   ## NOTE: The current centos6.4 doesnt have nfs installed. Need to manually install inside the vm with: sudo yum install nfs-utils nfs-utils-lib
   #config.vm.share_folder "magento", "/var/www/magento", "magento" , :nfs => true
