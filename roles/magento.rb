@@ -38,7 +38,9 @@ default_attributes(
         :gzip => 'on',
         :gzip_http_version => '1.1',
         :gzip_vary => 'off',
-	:worker_processes => 1
+        :worker_processes => 1,
+        :secure_port => "443",
+        :unsecure_port => "81"
     },
     :php => {
         :ius => ''
