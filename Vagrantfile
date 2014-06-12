@@ -90,6 +90,7 @@ Vagrant::Config.run do |config|
     chef.add_role "varnish"
     chef.add_role "mysql"
     chef.add_role "redis"
+    chef.add_role "developer"
 
     # You may also specify custom JSON attributes:
     # chef.json = { :mysql_password => "foo" }
@@ -108,18 +109,21 @@ Vagrant::Config.run do |config|
     # }
 
     ## Set websites and runcodes in the custom JSON attributes:
-#     chef.json = {
-#         :magento => {
+    chef.json = {
+        :magento => {
 #             :run_codes => {
 #                 'website-a.vagrant.local' => 'website-a',
 #                 'website-b.vagrant.local' => 'website-b'
 #             },
-#             :run_type => 'website',
-#             :server_params => {
-#                 :MAGE_IS_DEVELOPER_MODE => 'true'
-#             }
-#         }
-#     }
+            :run_type => 'website',
+            :server_params => {
+                :MAGE_IS_DEVELOPER_MODE => 'true'
+            }
+        },
+        :xdebug => {
+            :remote_host => '192.168.55.1'
+        }
+    }
 
   end
 
