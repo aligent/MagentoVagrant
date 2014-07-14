@@ -5,7 +5,7 @@ run_list (
 )
 
 default_attributes "mysql" => {
-    "bind_address" => "0.0.0.0",          ## @TODO: This should be set dynamically
+    "bind_address" => "0.0.0.0",          ## bind all interfaces, only suitable for vagrant use (not production chef)
     "tunable" => {
 #        "max_connections" => 300,
 #        "key_buffer_size" => "1G",
