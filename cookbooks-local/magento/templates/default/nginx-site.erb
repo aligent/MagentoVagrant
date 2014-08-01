@@ -79,6 +79,13 @@ server {
       }
     }
 
+    # Don't process missing files from thes locations with Magento.
+    location ~ ^/(media|skin|js)/ {
+      if (!-f $request_filename) {
+        break;
+      }
+    }
+
     # rewrite - if file not found, pass it to the backend
     if (!-f $request_filename) {
       fastcgi_pass <%= node[:magento][:nginx][:fastcgi_process] %>;
