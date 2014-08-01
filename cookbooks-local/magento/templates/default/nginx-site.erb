@@ -65,7 +65,14 @@ server {
     <% if @ssl %>fastcgi_param HTTPS on;<% end %>
 
     # Use the correct index.php for content staging and merging.
+    # fastcgi_params in this location overwrite the previously set values. @TODO, there must be a good way to DRY this
     location ~* /staging/(?<site>[^/]+)/? {
+       # set fastcgi settings, not allowed in the "if" block
+       include /etc/nginx/fastcgi_params;
+       <% node[:magento][:server_params].each do |param, value| %>
+       fastcgi_param <%= "#{param} #{value}" %>;
+       <% end %>
+       <% if @ssl %>fastcgi_param HTTPS on;<% end %>
       fastcgi_param SCRIPT_FILENAME $document_root/staging/$site/index.php;
       fastcgi_param SCRIPT_NAME /staging/$site/index.php;
       location ~ (\.php)$ {
