@@ -20,7 +20,7 @@ run_list(
 
 default_attributes(
     :yum => {
-        :ius_release => '1.0-11',
+        :ius_release => '1.0-14',
         :remi => {
             :includepkgs => 'php-fpm'
         }
